@@ -1,8 +1,8 @@
 <h1>Hi, I'm Eduardo</h1>
 
-- 👀 I’m interested in game development.
-- 🌱 I’m currently learning game programming
-- 🔭 I'm focused on becoming a good game developer.
+- 👀 I’m interested in software development.
+- 🌱 I’m currently learning software programming
+- 🔭 I'm focused on becoming a good developer.
 - 📫 You can contact me via email or social media.
 
 <h3>My experience:</h3>
@@ -15,13 +15,13 @@
 <img width="50" alt="Git" src="https://github.com/Eduardo-JS-BR/Eduardo-JS-BR/assets/135711340/f1d491b5-e511-402c-931d-cbcca29c9039">
 
 
-
+<!--
 <h3>What am i learning:</h3>
 
 <img width="50" alt="Unity" src="https://github.com/Eduardo-JS-BR/Eduardo-JS-BR/assets/135711340/1635e31f-3d34-4590-b7ef-e88556abf49d">
 <img width="50" alt="Unreal" src="https://github.com/Eduardo-JS-BR/Eduardo-JS-BR/assets/135711340/f013f7a4-5c1f-4911-b9c1-82e87893af3f">
 
-<!--
+
 <h3>Where do you find me:</h3>
 
 <a href="mailto:eduardoschroeder22@gmail.com"><img width="50" alt="e-mail" src="https://github.com/Eduardo-JS-BR/Eduardo-JS-BR/assets/135711340/d0a774b5-59da-46a3-8a99-0c12c601298d"></a>
