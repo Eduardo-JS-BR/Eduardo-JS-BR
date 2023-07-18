@@ -1,4 +1,6 @@
-﻿class Produtor
+﻿namespace ConsoleApp.Modelos;
+
+class Produtor
 {
     public Produtor(string? nomeProdutor)
     {

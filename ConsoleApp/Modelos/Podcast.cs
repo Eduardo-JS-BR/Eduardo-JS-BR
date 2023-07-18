@@ -1,4 +1,6 @@
-﻿class Podcast
+﻿namespace ConsoleApp.Modelos;
+
+class Podcast
 {
     private List<Episodio> episodios = new List<Episodio>();
     public Podcast(string? hostPodcast, string? nomePodcast)

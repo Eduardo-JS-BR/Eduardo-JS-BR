@@ -1,4 +1,6 @@
-﻿class Musica
+﻿namespace ConsoleApp.Modelos;
+
+class Musica
 {
     public Musica(Banda nomeArtista, string? nomeMusica)
     {

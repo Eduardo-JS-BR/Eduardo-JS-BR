@@ -1,4 +1,6 @@
-﻿class Album
+﻿namespace ConsoleApp.Modelos;
+
+class Album
 {
     private List<Musica> musicas = new List<Musica>();
 
@@ -9,6 +11,7 @@
 
     public string? NomeAlbum { get; }
     public double DuracaoAlbum => musicas.Sum(m => m.DuracaoMusica);
+    public List<Musica> Musicas => musicas;
 
     public void AdicionarMusica(Musica musica)
     {

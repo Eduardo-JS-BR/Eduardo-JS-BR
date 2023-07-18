@@ -1,4 +1,6 @@
-﻿class Episodio
+﻿namespace ConsoleApp.Modelos;
+
+class Episodio
 {
     List<string> convidados = new List<string>();
     public Episodio(int numeroEpisodio, string? tituloEpisodio, int duracaoEpisodio)

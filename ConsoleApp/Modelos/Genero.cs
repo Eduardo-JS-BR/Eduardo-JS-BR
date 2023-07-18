@@ -1,4 +1,6 @@
-﻿class Genero
+﻿namespace ConsoleApp.Modelos;
+
+class Genero
 {
     public Genero(string? generoMusica)
     {
