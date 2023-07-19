@@ -1,7 +1,8 @@
 ﻿namespace ConsoleApp.Modelos;
 
-internal class Musica
+internal class Musica : IAvaliavel
 {
+    List<Avaliacao> notas = new();
     public Musica(Banda nomeArtista, string? nomeMusica)
     {
         NomeArtista = nomeArtista;
@@ -16,6 +17,15 @@ internal class Musica
     public Genero? GeneroMusica { get; set; }
     public Produtor? ProdutorMusica { get; set; }
     public Estudio? EstudioMusica { get; set; }
+
+    public double Media
+    {
+        get
+        {
+            if (notas.Count == 0) return 0;
+            else return notas.Average(a => a.Nota);
+        }
+    }
 
     public void ExibirFichaTecnica()
     {
@@ -33,5 +43,10 @@ internal class Musica
         {
             Console.WriteLine("Assine o plano plus.");
         }
+    }
+
+    public void AdicionarNota(Avaliacao nota)
+    {
+        notas.Add(nota);
     }
 }
