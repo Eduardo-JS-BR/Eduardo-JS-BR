@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp.Modelos;
 
-class Estudio
+internal class Estudio
 {
     public Estudio(string? studio)
     {
