@@ -24,7 +24,7 @@ class Address:
             self.address[document][zip] = zip
             print("\nEndereço atualizado com sucesso.")
         else:
-            print(f"\nEndereço não localizado do usuário {document}.")
+            print(f"\nEndereço não localizado do usuário.")
     
     def print_address(self, document):
         if document in self.address:

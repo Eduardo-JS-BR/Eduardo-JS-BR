@@ -1,20 +1,22 @@
 from address import Address
 from client import Client
 from product import Product
+from supplier import Supplier
 
-client = Client()
 address = Address()
+client = Client()
 product = Product()
+supplier = Supplier()
 
 def main():
 
     while True:
-        print("\nCliente\nEstoque\nSair")
+        print("\nCliente\nFornecedor\nEstoque\nSair")
         option = input("Digite uma opção: ")
         
         if (option.lower() == "cliente"): # Área Cliente
             while True:
-                print("\nNovo Cliente\nExcluir Cliente\nAtualizar Cliente\nAtualizar Endereço\nLista Clientes\nBuscar Cliente\nVoltar")
+                print("\nNovo Cliente\nExcluir Cliente\nAtualizar Cliente\nAtualizar Endereço\nListar Clientes\nBuscar Cliente\nVoltar")
                 option_client = input("Digite uma opção: ")
 
                 if (option_client.lower() == "novo cliente"): # Cadastrar Novo Cliente
@@ -58,7 +60,7 @@ def main():
 
                     address.update_address(document, street, number, neighborhood, city, state, zip)
 
-                elif (option_client.lower() == "lista clientes"): # Lista Todos os Clientes
+                elif (option_client.lower() == "listar clientes"): # Lista Todos os Clientes
                     client.print_clients()
                 
                 elif (option_client.lower() == "buscar cliente"): # Busca um Cliente
@@ -72,12 +74,71 @@ def main():
                 else:
                     print("\nOpção não disponível.")
 
-        elif (option.lower() == "estoque"):
+        elif (option.lower() == "fornecedor"): # Área Fornecedor
             while True:
-                print("\nAdicionar Estoque\nExcluir Estoque\nLista Estoque\nVoltar")
+                print("\nNovo Fornecedor\nExcluir Fornecedor\nAtualizar Fornecedor\nAtualizar Endereço\nListar Fornecedores\nBuscar Fornecedor\nVoltar")
+                option_supplier = input("Digite uma opção: ")
+
+                if (option_supplier.lower() == "novo fornecedor"): # Cadastrar Novo Fornecedor
+                    name = input("\nNome do Fornecedor: ")
+                    document = input("CNPJ do Fornecedor: ")
+                    phone = input("Telefone do Fornecedor: ")
+                    email = input("E-Mail do Fornecedor: ")
+                    print("Dados do Endereço:")
+                    street = input("Rua: ")
+                    number = input("Número: ")
+                    neighborhood = input("Bairro: ")
+                    city = input("Cidade: ")
+                    state = input("Estado: ")
+                    zip = input("CEP: ")
+
+                    supplier.add_supplier(name, document, phone, email)
+                    address.add_address(document, street, number, neighborhood, city, state, zip)
+
+                elif (option_supplier.lower() == "excluir fornecedor"): # Exclui um Fornecedor
+                    document = input("\nCNPJ do Fornecedor: ")
+                    supplier.del_supplier(document)
+                    address.del_address(document)
+                    
+                elif (option_supplier.lower() == "atualizar fornecedor"): # Atualiza Dados do Fornecedor
+                    document = input("\nCNPJ do Fornecedor: ")
+                    name = input("Nome do Fornecedor: ")
+                    phone = input("Telefone do Fornecedor: ")
+                    email = input("E-Mail do Fornecedor: ")
+
+                    supplier.update_supplier(name, document, phone, email)
+
+                elif (option_supplier.lower() == "atualizar endereço" or option_supplier.lower() == "atualizar endereco"): # Atualiza Endereço do Fornecedor
+                    document = input("\nCNPJ do Fornecedor: ")
+                    street = input("Rua: ")
+                    number = input("Número: ")
+                    neighborhood = input("Bairro: ")
+                    city = input("Cidade: ")
+                    state = input("Estado: ")
+                    zip = input("CEP: ")
+
+                    address.update_address(document, street, number, neighborhood, city, state, zip)
+
+                elif (option_supplier.lower() == "listar fornecedores"): # Lista Todos os Fornecedores
+                    supplier.print_suppliers()
+
+                elif (option_supplier.lower() == "buscar fornecedor"): # Busca um Fornecedor
+                    document = input("\nCNPJ do Fornecedor: ")
+                    supplier.print_supplier(document)
+                    address.print_address(document)
+
+                elif (option_supplier.lower() == "voltar"): # Volta pro Menu Principal
+                    break
+
+                else:
+                    print("\nOpção não disponível.")
+
+        elif (option.lower() == "estoque"): # Área Estoque
+            while True:
+                print("\nAdicionar Estoque\nExcluir Estoque\nListar Estoque\nVoltar")
                 option_product = input("Digite uma opção: ")
 
-                if (option_product == "adicionar estoque"): # Adicionar Novo Estoque
+                if (option_product.lower() == "adicionar estoque"): # Adicionar Novo Estoque
                     id = input("\nDigite o código do produto: ")
                     length = input("Digite o comprimento: ")
                     width = input("Digite a largura: ")
@@ -85,18 +146,18 @@ def main():
                     type_of_glue = input("Digite o tipo de cola: ")
                     quantity = input("Digite a quantidade: ")
 
-                    product.add_product(id, length, width, thickness, type_of_glue, quantity)
+                    product.add_product(id, length, width, thickness, type_of_glue, int(quantity))
 
-                elif (option_product == "excluir estoque"): # Excluir Estoque
+                elif (option_product.lower() == "excluir estoque"): # Excluir Estoque
                     id = input("\nDigite o código do produto: ")
                     quantity = input("Digite a quantidade: ")
 
-                    product.del_product(id, quantity)
+                    product.del_product(id, int(quantity))
 
-                elif (option_product == "lista estoque"): # Listar Estoque
+                elif (option_product.lower() == "listar estoque"): # Listar Estoque
                     product.print_product()
 
-                elif (option_product == "voltar"): # Volta pro Menu Principal
+                elif (option_product.lower() == "voltar"): # Volta pro Menu Principal
                     break
                 else:
                     print("\nOpção não disponível.")
