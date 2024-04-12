@@ -1,17 +1,19 @@
 from address import Address
 from client import Client
 from product import Product
+from sales import Sales
 from supplier import Supplier
 
 address = Address()
 client = Client()
 product = Product()
+sales = Sales()
 supplier = Supplier()
 
 def main():
 
     while True:
-        print("\nCliente\nFornecedor\nEstoque\nSair")
+        print("\nCliente\nFornecedor\nEstoque\nVenda\nSair")
         option = input("Digite uma opção: ")
         
         if (option.lower() == "cliente"): # Área Cliente
@@ -159,6 +161,43 @@ def main():
 
                 elif (option_product.lower() == "voltar"): # Volta pro Menu Principal
                     break
+                else:
+                    print("\nOpção não disponível.")
+
+        elif (option.lower() == "venda"): # Área Venda
+            while True:
+                print("\nNova Venda\nExcluir Venda\nEditar Venda\nVoltar")
+                option_sales = input("Digite uma opção: ")
+
+                if (option_sales.lower() == "nova venda"): # Adicionar Nova Venda
+                    id = input("\nDigite o número da venda: ")
+                    document = input("Digite o CPF ou CNPJ do cliente: ")
+                    product = input("Digite o código do produto: ")
+                    quantity = input("Digite a quantidade: ")
+                    type_of_payment = input("Digite o tipo de pagamento: ")
+                    total_value = input("Digite o valor total: ")
+
+                    sales.add_sales(id, document, product, int(quantity), type_of_payment, total_value)
+
+                elif (option_sales.lower() == "excluir venda"): # Excluir uma Venda
+                    id = input("\nDigite o número da venda: ")
+
+                    sales.del_sales(id)
+
+                elif (option_sales.lower() == "editar venda"): # Edita uma Venda
+                    id = input("\nDigite o número da venda: ")
+                    document = input("Digite o CPF ou CNPJ do cliente: ")
+                    product = input("Digite o código do produto: ")
+                    quantity = input("Digite a quantidade: ")
+                    type_of_payment = input("Digite o tipo de pagamento: ")
+                    total_value = input("Digite o valor total: ")
+
+                    sales.update_sales(id, document, product, int(quantity), type_of_payment, total_value)
+
+                elif (option_sales.lower() == "voltar"): # Volta pro Menu Principal
+                    break
+                elif (option_sales.lower() == "print"): # Temporário
+                    sales.print("123")
                 else:
                     print("\nOpção não disponível.")
 

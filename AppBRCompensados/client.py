@@ -40,3 +40,9 @@ class Client:
             print(f"E-Mail: {self.client[document]['email']}")
         else:
             print("\nCliente não localizado.")
+
+    def client_search(self, document):
+        if document in self.client:
+            return f"{document} - {self.client[document]['name']}"
+        else:
+            return "Cliente não localizado."
