@@ -17,7 +17,7 @@ class Product:
             print(f"\nQuantidade insuficiente no estoque para excluir.")
         else:
             self.product[id]["quantity"] -= quantity
-            print(f"\nProduto {self.product[id]['id']} removido do estoque. Quantidade restante: {self.product[id]['quantity']}")
+            print(f"\nProduto {id} removido do estoque. Quantidade restante: {self.product[id]['quantity']}")
 
     def print_product(self):
         print("\nEstoque de Produtos:")
