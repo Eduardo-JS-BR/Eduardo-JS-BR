@@ -1,31 +1,63 @@
-from client import Client
+from data import Data
 
-client = Client()
+data = Data()
 
 class Sales:
-    def __init__(self):
-        self.sales = {}
+    def __init__(self) -> None:
+        pass
     
-    def add_sales(self, id, document, product, quantity, type_of_payment, total_value):
-        if id in self.sales:
-            print("\nVenda já cadastrada.")
-        else:
-            self.sales[id] = {"document":document, "product":product, "quantity":quantity, "type_of_payment":type_of_payment, "total_value":total_value}
-    
-    def del_sales(self, id):
-        if id in self.sales:
-            del self.sales[id]
-            print("\nVenda excluída com sucesso.")
-        else:
-            print("\nVenda não localizada.")
+    def add_sales(self):
+        id = input("\nDigite o número da venda: ")
+        document = input("Digite o CPF ou CNPJ do cliente: ")
+        product = input("Digite o código do produto: ")
+        quantity = input("Digite a quantidade: ")
+        type_of_payment = input("Digite o tipo de pagamento: ")
+        total_value = input("Digite o valor total: ")
 
-    def update_sales(self, id, document, product, quantity, type_of_payment, total_value):
-        if id in self.sales:
-            self.sales[id][document] = document
-            self.sales[id][product] = product
-            self.sales[id][quantity] = quantity
-            self.sales[id][type_of_payment] = type_of_payment
-            self.sales[id][total_value] = total_value
-            print("\nDados da venda atualizada com sucesso.")
-        else:
-            print("\nVenda não localizada.")
+        new_data = {
+            "id": id,
+            "document": document,
+            "product": product,
+            "quantity": int(quantity),
+            "type_of_payment": type_of_payment,
+            "total_value": float(total_value)
+        }
+
+        data.add_data(new_data, "sales")
+        print("\nVenda Cadastrada como Sucesso!")
+    
+    def del_sales(self):
+        id = input("\nDigite o Código da Venda: ")
+        data.del_data("sales", "id", id)
+        print("\nVenda Excluída com Sucesso.")
+    
+    def update_sales(self):
+        id = input("\nDigite o número da venda: ")
+        document = input("Digite o CPF ou CNPJ do cliente: ")
+        product = input("Digite o código do produto: ")
+        quantity = input("Digite a quantidade: ")
+        type_of_payment = input("Digite o tipo de pagamento: ")
+        total_value = input("Digite o valor total: ")
+
+        new_data = {
+            "id": id,
+            "document": document,
+            "product": product,
+            "quantity": int(quantity),
+            "type_of_payment": type_of_payment,
+            "total_value": float(total_value)
+        }
+
+        data.update_data("sales", "id", id, new_data)
+        print("\nVenda Atualizada como Sucesso!")
+
+    def print_sales(self):
+        sales_data = data.return_class_data_in_json("sales")
+
+        for sales in sales_data:
+            print(f"\nID: {sales["id"]}")
+            print(f"Cliente: {sales["document"]}")
+            print(f"Produto: {sales["product"]}")
+            print(f"Quantidade: {sales["quantity"]}")
+            print(f"Tipo de Pagamento: {sales["type_of_payment"]}")
+            print(f"Valor Total: {sales["total_value"]}")
