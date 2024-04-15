@@ -1,209 +1,137 @@
-from address import Address
 from client import Client
 from product import Product
 from sales import Sales
 from supplier import Supplier
-
-address = Address()
-client = Client()
-product = Product()
-sales = Sales()
-supplier = Supplier()
+import os
 
 def main():
 
+    client = Client()
+    product = Product()
+    sales = Sales()
+    supplier = Supplier()
+
     while True:
-        print("\nCliente\nFornecedor\nEstoque\nVenda\nSair")
+        print("\n==================\n")
+        print("1 - Cliente\n2 - Fornecedor\n3 - Estoque\n4 - Venda\n5 - Sair")
         option = input("Digite uma opção: ")
-        
-        if (option.lower() == "cliente"): # Área Cliente
+        os.system("cls") # Windows
+        #os.system("clear") # Mac/Linux
+
+        if (option == "1" or option.lower() == "cliente"): # Área Cliente
             while True:
-                print("\nNovo Cliente\nExcluir Cliente\nAtualizar Cliente\nAtualizar Endereço\nListar Clientes\nBuscar Cliente\nVoltar")
+                print("\n==================\n")
+                print("1 - Novo Cliente\n2 - Excluir Cliente\n3 - Atualizar Cliente\n4 - Listar Clientes\n5 - Buscar Cliente\n6 - Voltar")
                 option_client = input("Digite uma opção: ")
+                os.system("cls") # Windows
+                #os.system("clear") # Mac/Linux
 
-                if (option_client.lower() == "novo cliente"): # Cadastrar Novo Cliente
-                    name = input("\nNome do Cliente: ")
-                    document = input("CPF ou CNPJ do Cliente: ")
-                    phone = input("Telefone do Cliente: ")
-                    email = input("E-Mail do Cliente: ")
-                    print("Dados do Endereço:")
-                    street = input("Rua: ")
-                    number = input("Número: ")
-                    neighborhood = input("Bairro: ")
-                    city = input("Cidade: ")
-                    state = input("Estado: ")
-                    zip = input("CEP: ")
-
-                    client.add_client(name, document, phone, email)
-                    address.add_address(document, street, number, neighborhood, city, state, zip)
-                    print("\nCliente cadastrado com sucesso.")
+                if (option_client == "1" or option_client.lower() == "novo cliente"): # Cadastrar Novo Cliente
+                    client.add_client()
                 
-                elif (option_client.lower() == "excluir cliente"): # Excluir um Cliente
-                    document = input("\nCPF ou CNPJ do Cliente: ")
-                    client.del_client(document)
-                    address.del_address(document)
+                elif (option_client == "2" or option_client.lower() == "excluir cliente"): # Excluir um Cliente
+                    client.del_client()
                 
-                elif (option_client.lower() == "atualizar cliente"): # Atualizar Dados do Cliente
-                    document = input("\nCPF ou CNPJ do Cliente: ")
-                    name = input("Nome do Cliente: ")
-                    phone = input("Telefone do Cliente: ")
-                    email = input("E-Mail do Cliente: ")
+                elif (option_client == "3" or option_client.lower() == "atualizar cliente"): # Atualizar Dados do Cliente
+                    client.update_client()
 
-                    client.update_client(name, document, phone, email)
-
-                elif (option_client.lower() == "atualizar endereço" or option_client.lower() == "atualizar endereco"): # Atualizar Endereço do Cliente
-                    document = input("\nCPF ou CNPJ do Cliente: ")
-                    street = input("Rua: ")
-                    number = input("Número: ")
-                    neighborhood = input("Bairro: ")
-                    city = input("Cidade: ")
-                    state = input("Estado: ")
-                    zip = input("CEP: ")
-
-                    address.update_address(document, street, number, neighborhood, city, state, zip)
-
-                elif (option_client.lower() == "listar clientes"): # Lista Todos os Clientes
+                elif (option_client == "4" or option_client.lower() == "listar clientes"): # Lista Todos os Clientes
                     client.print_clients()
                 
-                elif (option_client.lower() == "buscar cliente"): # Busca um Cliente
-                    document = input("\nCPF ou CNPJ do Cliente: ")
-                    client.print_client(document)
-                    address.print_address(document)
+                elif (option_client == "5" or option_client.lower() == "buscar cliente"): # Busca um Cliente
+                    client.print_client()
                 
-                elif (option_client.lower() == "voltar"): # Volta pro Menu Principal
+                elif (option_client == "6" or option_client.lower() == "voltar"): # Volta pro Menu Principal
                     break
 
                 else:
                     print("\nOpção não disponível.")
 
-        elif (option.lower() == "fornecedor"): # Área Fornecedor
+        elif (option == "2" or option.lower() == "fornecedor"): # Área Fornecedor
             while True:
-                print("\nNovo Fornecedor\nExcluir Fornecedor\nAtualizar Fornecedor\nAtualizar Endereço\nListar Fornecedores\nBuscar Fornecedor\nVoltar")
+                print("\n==================\n")
+                print("1 - Novo Fornecedor\n2 - Excluir Fornecedor\n3 - Atualizar Fornecedor\n4 - Listar Fornecedores\n5 - Buscar Fornecedor\n6 - Voltar")
                 option_supplier = input("Digite uma opção: ")
+                os.system("cls") # Windows
+                #os.system("clear") # Mac/Linux
 
-                if (option_supplier.lower() == "novo fornecedor"): # Cadastrar Novo Fornecedor
-                    name = input("\nNome do Fornecedor: ")
-                    document = input("CNPJ do Fornecedor: ")
-                    phone = input("Telefone do Fornecedor: ")
-                    email = input("E-Mail do Fornecedor: ")
-                    print("Dados do Endereço:")
-                    street = input("Rua: ")
-                    number = input("Número: ")
-                    neighborhood = input("Bairro: ")
-                    city = input("Cidade: ")
-                    state = input("Estado: ")
-                    zip = input("CEP: ")
+                if (option_supplier == "1" or option_supplier.lower() == "novo fornecedor"): # Cadastrar Novo Fornecedor
+                    supplier.add_supplier()
 
-                    supplier.add_supplier(name, document, phone, email)
-                    address.add_address(document, street, number, neighborhood, city, state, zip)
-
-                elif (option_supplier.lower() == "excluir fornecedor"): # Exclui um Fornecedor
-                    document = input("\nCNPJ do Fornecedor: ")
-                    supplier.del_supplier(document)
-                    address.del_address(document)
+                elif (option_supplier == "2" or option_supplier.lower() == "excluir fornecedor"): # Exclui um Fornecedor
+                    supplier.del_supplier()
                     
-                elif (option_supplier.lower() == "atualizar fornecedor"): # Atualiza Dados do Fornecedor
-                    document = input("\nCNPJ do Fornecedor: ")
-                    name = input("Nome do Fornecedor: ")
-                    phone = input("Telefone do Fornecedor: ")
-                    email = input("E-Mail do Fornecedor: ")
+                elif (option_supplier == "3" or option_supplier.lower() == "atualizar fornecedor"): # Atualiza Dados do Fornecedor
+                    supplier.update_supplier()
 
-                    supplier.update_supplier(name, document, phone, email)
-
-                elif (option_supplier.lower() == "atualizar endereço" or option_supplier.lower() == "atualizar endereco"): # Atualiza Endereço do Fornecedor
-                    document = input("\nCNPJ do Fornecedor: ")
-                    street = input("Rua: ")
-                    number = input("Número: ")
-                    neighborhood = input("Bairro: ")
-                    city = input("Cidade: ")
-                    state = input("Estado: ")
-                    zip = input("CEP: ")
-
-                    address.update_address(document, street, number, neighborhood, city, state, zip)
-
-                elif (option_supplier.lower() == "listar fornecedores"): # Lista Todos os Fornecedores
+                elif (option_supplier == "4" or option_supplier.lower() == "listar fornecedores"): # Lista Todos os Fornecedores
                     supplier.print_suppliers()
 
-                elif (option_supplier.lower() == "buscar fornecedor"): # Busca um Fornecedor
-                    document = input("\nCNPJ do Fornecedor: ")
-                    supplier.print_supplier(document)
-                    address.print_address(document)
+                elif (option_supplier == "5" or option_supplier.lower() == "buscar fornecedor"): # Busca um Fornecedor
+                    supplier.print_supplier()
 
-                elif (option_supplier.lower() == "voltar"): # Volta pro Menu Principal
+                elif (option_supplier == "6" or option_supplier.lower() == "voltar"): # Volta pro Menu Principal
                     break
 
                 else:
                     print("\nOpção não disponível.")
 
-        elif (option.lower() == "estoque"): # Área Estoque
+        elif (option == "3" or option.lower() == "estoque"): # Área Estoque
             while True:
-                print("\nAdicionar Estoque\nExcluir Estoque\nListar Estoque\nVoltar")
+                print("\n==================\n")
+                print("1 - Adicionar Estoque\n2 - Excluir Estoque\n3 - Listar Estoque\n4 - Atualizar Estoque\n5 - Voltar")
                 option_product = input("Digite uma opção: ")
+                os.system("cls") # Windows
+                #os.system("clear") # Mac/Linux
 
-                if (option_product.lower() == "adicionar estoque"): # Adicionar Novo Estoque
-                    id = input("\nDigite o código do produto: ")
-                    length = input("Digite o comprimento: ")
-                    width = input("Digite a largura: ")
-                    thickness = input("Digite a espessura: ")
-                    type_of_glue = input("Digite o tipo de cola: ")
-                    quantity = input("Digite a quantidade: ")
+                if (option_product == "1" or option_product.lower() == "adicionar estoque"): # Adicionar Novo Estoque
+                    product.add_product()
 
-                    product.add_product(id, length, width, thickness, type_of_glue, int(quantity))
+                elif (option_product == "2" or option_product.lower() == "excluir estoque"): # Excluir Estoque
+                    product.del_product()
 
-                elif (option_product.lower() == "excluir estoque"): # Excluir Estoque
-                    id = input("\nDigite o código do produto: ")
-                    quantity = input("Digite a quantidade: ")
+                elif (option_product == "3" or option_product.lower() == "listar estoque"): # Listar Estoque
+                    product.print_products()
+                
+                elif (option_product == "4" or option_product.lower() == "atualizar estoque"): # Atualizar Estoque
+                    product.update_product()
 
-                    product.del_product(id, int(quantity))
-
-                elif (option_product.lower() == "listar estoque"): # Listar Estoque
-                    product.print_product()
-
-                elif (option_product.lower() == "voltar"): # Volta pro Menu Principal
+                elif (option_product == "5" or option_product.lower() == "voltar"): # Volta pro Menu Principal
                     break
+
                 else:
                     print("\nOpção não disponível.")
 
-        elif (option.lower() == "venda"): # Área Venda
+        elif (option == "4" or option.lower() == "venda"): # Área Venda
             while True:
-                print("\nNova Venda\nExcluir Venda\nEditar Venda\nVoltar")
+                print("\n==================\n")
+                print("1 - Nova Venda\n2 - Excluir Venda\n3 - Listar Vendas\n4 - Atualizar Venda\n5 - Voltar")
                 option_sales = input("Digite uma opção: ")
+                os.system("cls") # Windows
+                #os.system("clear") # Mac/Linux
 
-                if (option_sales.lower() == "nova venda"): # Adicionar Nova Venda
-                    id = input("\nDigite o número da venda: ")
-                    document = input("Digite o CPF ou CNPJ do cliente: ")
-                    product = input("Digite o código do produto: ")
-                    quantity = input("Digite a quantidade: ")
-                    type_of_payment = input("Digite o tipo de pagamento: ")
-                    total_value = input("Digite o valor total: ")
+                if (option_sales == "1" or option_sales.lower() == "nova venda"): # Adicionar Nova Venda
+                    sales.add_sales()
 
-                    sales.add_sales(id, document, product, int(quantity), type_of_payment, total_value)
+                elif (option_sales == "2" or option_sales.lower() == "excluir venda"): # Excluir uma Venda
+                    sales.del_sales()
 
-                elif (option_sales.lower() == "excluir venda"): # Excluir uma Venda
-                    id = input("\nDigite o número da venda: ")
+                elif (option_sales == "3" or option_sales.lower() == "listar vendas"): # Edita uma Venda
+                    sales.print_sales()
+                
+                elif (option_sales == "4" or option_sales.lower() == "atualizar venda"): # Edita uma Venda
+                    sales.update_sales()
 
-                    sales.del_sales(id)
-
-                elif (option_sales.lower() == "editar venda"): # Edita uma Venda
-                    id = input("\nDigite o número da venda: ")
-                    document = input("Digite o CPF ou CNPJ do cliente: ")
-                    product = input("Digite o código do produto: ")
-                    quantity = input("Digite a quantidade: ")
-                    type_of_payment = input("Digite o tipo de pagamento: ")
-                    total_value = input("Digite o valor total: ")
-
-                    sales.update_sales(id, document, product, int(quantity), type_of_payment, total_value)
-
-                elif (option_sales.lower() == "voltar"): # Volta pro Menu Principal
+                elif (option_sales == "5" or option_sales.lower() == "voltar"): # Volta pro Menu Principal
                     break
-                elif (option_sales.lower() == "print"): # Temporário
-                    sales.print("123")
+
                 else:
                     print("\nOpção não disponível.")
 
-        elif (option.lower() == "sair"):
+        elif (option == "5" or option.lower() == "sair"):
             print("\nSaindo\n")
             break
+
         else:
             print("\nOpção não disponível.")
 

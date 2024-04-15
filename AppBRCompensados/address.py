@@ -1,38 +1,53 @@
-class Address:
-    def __init__(self):
-        self.address = {}
+from data import Data
 
-    def add_address(self, document, street, number, neighborhood, city, state, zip):
-        if document in self.address:
-            print("\nEndereço já cadastrado")
-        else:
-            self.address[document] = {"street":street, "number":number, "neighborhood":neighborhood, "city":city, "state":state, "zip":zip}
+data = Data()
+
+class Address:
+    def __init__(self) -> None:
+        pass
+
+    def add_address(self, document):
+        street = input("\nEndereço: ")
+        number = input("Número: ")
+        neighborhood = input("Bairro: ")
+        city = input("Cidade: ")
+        state = input("Estado: ")
+        zip = input("CEP: ")
+
+        new_data = {
+            "document": document,
+            "street": street,
+            "number": number,
+            "neighborhood": neighborhood,
+            "city": city,
+            "state": state,
+            "zip": zip
+        }
+
+        data.add_data(new_data, "address")
 
     def del_address(self, document):
-        if document in self.address:
-            del self.address[document]
-        else:
-            print("\nEndereço não localizado.")
+        data.del_data("address", "document", document)
 
-    def update_address(self, document, street, number, neighborhood, city, state, zip):
-        if document in self.address:
-            self.address[document][street] = street
-            self.address[document][number] = number
-            self.address[document][neighborhood] = neighborhood
-            self.address[document][city] = city
-            self.address[document][state] = state
-            self.address[document][zip] = zip
-            print("\nEndereço atualizado com sucesso.")
-        else:
-            print(f"\nEndereço não localizado do usuário.")
+    def update_address(self, document):
+        street = input("\nEndereço: ")
+        number = input("Número: ")
+        neighborhood = input("Bairro: ")
+        city = input("Cidade: ")
+        state = input("Estado: ")
+        zip = input("CEP: ")
+
+        new_data = {
+            "document": document,
+            "street": street,
+            "number": number,
+            "neighborhood": neighborhood,
+            "city": city,
+            "state": state,
+            "zip": zip
+        }
+
+        data.update_data("address", "document", document, new_data)
     
-    def print_address(self, document):
-        if document in self.address:
-            print(f"Rua: {self.address[document]['street']}")
-            print(f"Número: {self.address[document]['number']}")
-            print(f"Bairro: {self.address[document]['neighborhood']}")
-            print(f"Cidade: {self.address[document]['city']}")
-            print(f"Estado: {self.address[document]['state']}")
-            print(f"CEP: {self.address[document]['zip']}")
-        else:
-            print(f"\nEndereço não encontrado.")
+    def return_address(self, document):
+        return data.return_data_in_json("address", "document", document)
