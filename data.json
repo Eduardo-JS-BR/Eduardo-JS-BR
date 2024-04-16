@@ -72,8 +72,9 @@
             "width": 122,
             "thickness": 15,
             "type_of_glue": "Branca",
-            "quantity": 55,
-            "money_value": 30.0
+            "quantity": 100,
+            "purchase_price": 20.0,
+            "sales_price": 30.0
         },
         {
             "id": "ABC21",
@@ -81,8 +82,9 @@
             "width": 160,
             "thickness": 12,
             "type_of_glue": "Branca",
-            "quantity": 28,
-            "money_value": 25.0
+            "quantity": 60,
+            "purchase_price": 15.0,
+            "sales_price": 25.0
         },
         {
             "id": "ABC123",
@@ -91,7 +93,8 @@
             "thickness": 15,
             "type_of_glue": "Branca",
             "quantity": 15,
-            "money_value": 40.0
+            "purchase_price": 25.0,
+            "sales_price": 40.0
         }
     ],
     "sales": [
@@ -110,6 +113,24 @@
             ],
             "type_of_payment": "Dinheiro",
             "total_value": 200.0
+        }
+    ],
+    "purchase": [
+        {
+            "id": "1",
+            "document": "89090103000101",
+            "name": "Mallett Compensados",
+            "address": "Rua Lauro Martins 1762, Nova Esperan\u00e7a, Mallett - Paran\u00e1, 51856014",
+            "product": [
+                "ABC12",
+                "ABC21"
+            ],
+            "quantity": [
+                45,
+                32
+            ],
+            "type_of_payment": "Cheque Pr\u00e9-Datado",
+            "total_value": 1380.0
         }
     ]
 }

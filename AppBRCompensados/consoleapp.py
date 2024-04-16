@@ -1,5 +1,7 @@
 from client import Client
+from finance import Finance
 from product import Product
+from purchase import Purchase
 from sales import Sales
 from supplier import Supplier
 import os
@@ -7,13 +9,15 @@ import os
 def main():
 
     client = Client()
+    finance = Finance()
     product = Product()
+    purchase = Purchase()
     sales = Sales()
     supplier = Supplier()
 
     while True:
         print("\n==================\n")
-        print("1 - Cliente\n2 - Fornecedor\n3 - Estoque\n4 - Venda\n5 - Sair")
+        print("1 - Cliente\n2 - Fornecedor\n3 - Estoque\n4 - Venda\n5 - Compra\n6 - Financeiro\n7 - Sair")
         option = input("Digite uma opção: ")
         os.system("cls") # Windows
         #os.system("clear") # Mac/Linux
@@ -116,7 +120,7 @@ def main():
                 elif (option_sales == "2" or option_sales.lower() == "excluir venda"): # Excluir uma Venda
                     sales.del_sales()
 
-                elif (option_sales == "3" or option_sales.lower() == "listar vendas"): # Edita uma Venda
+                elif (option_sales == "3" or option_sales.lower() == "listar vendas"): # Lista as Vendas
                     sales.print_sales()
                 
                 elif (option_sales == "4" or option_sales.lower() == "atualizar venda"): # Edita uma Venda
@@ -128,7 +132,52 @@ def main():
                 else:
                     print("\nOpção não disponível.")
 
-        elif (option == "5" or option.lower() == "sair"):
+        elif (option == "5" or option.lower() == "compra"):
+            while True:
+                print("\n==================\n")
+                print("1 - Nova Compra\n2 - Excluir Compra\n3 - Listar Compras\n4 - Atualizar Compra\n5 - Voltar")
+                option_purchase = input("Digite uma opção: ")
+                os.system("cls") # Windows
+                #os.system("clear") # Mac/Linux
+
+                if (option_purchase == "1" or option_purchase.lower() == "nova compra"): # Adicionar Nova Compra
+                    purchase.add_purchase()
+
+                elif (option_purchase == "2" or option_purchase.lower() == "excluir compra"): # Excluir uma Compra
+                    purchase.del_purchase()
+
+                elif (option_purchase == "3" or option_purchase.lower() == "listar compras"): # Lista as Compras
+                    purchase.print_purchases()
+                
+                elif (option_purchase == "4" or option_purchase.lower() == "atualizar compra"): # Edita uma Venda
+                    purchase.update_purchase()
+
+                elif (option_purchase == "5" or option_purchase.lower() == "voltar"): # Volta pro Menu Principal
+                    break
+
+                else:
+                    print("\nOpção não disponível.")
+
+        elif (option == "6" or option.lower() == "financeiro"):
+            while True:
+                print("\n==================\n")
+                print("1 - Vendas\n2 - Compras\n3 - Balanço\n4 - Voltar")
+                option_finance = input("Digite uma opção: ")
+                os.system("cls") # Windows
+                #os.system("clear") # Mac/Linux
+
+                if (option_finance == "1" or option_finance.lower() == "vendas"): # Mostra as Vendas
+                    finance.print_sales()
+                elif (option_finance == "2" or option_finance.lower() == "compras"): # Mostra as Compras
+                    finance.print_purchases()
+                elif (option_finance == "3" or option_finance.lower() == "balanço"): # Mostra o Balanço
+                    finance.print_balance()
+                elif (option_finance == "4" or option_finance.lower() == "voltar"): # Volta pro Menu Principal
+                    break
+                else:
+                    print("\nOpção não dispoinível.")
+
+        elif (option == "7" or option.lower() == "sair"):
             print("\nSaindo\n")
             break
 
