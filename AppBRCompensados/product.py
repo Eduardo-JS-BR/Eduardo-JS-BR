@@ -13,6 +13,7 @@ class Product:
         thickness = input("Digite a espessura (mm): ")
         type_of_glue = input("Digite o tipo de cola: ")
         quantity = input("Digite a quantidade: ")
+        money_value = input("Digite o valor: R$")
 
         new_data = {
             "id": id,
@@ -20,7 +21,8 @@ class Product:
             "width": int(width),
             "thickness": int(thickness),
             "type_of_glue": type_of_glue,
-            "quantity": int(quantity)
+            "quantity": int(quantity),
+            "money_value": float(money_value)
         }
 
         data.add_data(new_data, "product")
@@ -38,6 +40,7 @@ class Product:
         thickness = input("Digite a espessura (mm): ")
         type_of_glue = input("Digite o tipo de cola: ")
         quantity = input("Digite a quantidade: ")
+        money_value = input("Digite o valor: R$")
 
         new_data = {
             "id": id,
@@ -45,7 +48,8 @@ class Product:
             "width": int(width),
             "thickness": int(thickness),
             "type_of_glue": type_of_glue,
-            "quantity": int(quantity)
+            "quantity": int(quantity),
+            "money_value": float(money_value)
         }
 
         data.update_data("product", "id", id, new_data)
@@ -61,3 +65,4 @@ class Product:
             print(f"Espessura: {product["thickness"]} mm")
             print(f"Tipo de Cola: {product["type_of_glue"]}")
             print(f"Quantidade: {product["quantity"]}")
+            print(f"Valor: R${product["money_value"]}")
