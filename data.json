@@ -72,7 +72,9 @@
             "width": 122,
             "thickness": 15,
             "type_of_glue": "Branca",
-            "quantity": 60
+            "quantity": 100,
+            "purchase_price": 20.0,
+            "sales_price": 30.0
         },
         {
             "id": "ABC21",
@@ -80,7 +82,9 @@
             "width": 160,
             "thickness": 12,
             "type_of_glue": "Branca",
-            "quantity": 30
+            "quantity": 60,
+            "purchase_price": 15.0,
+            "sales_price": 25.0
         },
         {
             "id": "ABC123",
@@ -88,8 +92,53 @@
             "width": 120,
             "thickness": 15,
             "type_of_glue": "Branca",
-            "quantity": 15
+            "quantity": 15,
+            "purchase_price": 25.0,
+            "sales_price": 40.0
         }
     ],
-    "sales": []
+    "sales": [
+        {
+            "id": "1",
+            "document": "84157443000180",
+            "name": "Zoo Moveis",
+            "address": "Rua Colorado 567, Cidade Industrial, Curitiba - Paran\u00e1, 26461619",
+            "product": [
+                "ABC12",
+                "ABC21"
+            ],
+            "quantity": [
+                5,
+                2
+            ],
+            "type_of_payment": "Dinheiro",
+            "total_value": 200.0
+        }
+    ],
+    "purchase": [
+        {
+            "id": "1",
+            "document": "89090103000101",
+            "name": "Mallett Compensados",
+            "address": "Rua Lauro Martins 1762, Nova Esperan\u00e7a, Mallett - Paran\u00e1, 51856014",
+            "product": [
+                "ABC12",
+                "ABC21"
+            ],
+            "quantity": [
+                45,
+                32
+            ],
+            "type_of_payment": "Cheque Pr\u00e9-Datado",
+            "total_value": 1380.0
+        }
+    ],
+    "expense": [
+        {
+            "id": "1",
+            "name": "Compra de Combust\u00edvel",
+            "description": "Compra de Combust\u00edvel para o Maquin\u00e1rio.",
+            "expense_price": 175.0
+        }
+    ]
 }
