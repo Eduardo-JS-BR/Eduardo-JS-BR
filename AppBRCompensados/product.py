@@ -33,7 +33,7 @@ class Product:
     def del_product(self):
         id = input("\nDigite o Código do Produto: ")
         verify = data.return_data_in_json("product", "id", id)
-        if (verify != None):
+        if (verify != None): # Confere a existência do produto
             data.del_data("product", "id", id)
             print("\nProduto Excluído com Sucesso.")
         else:
@@ -42,7 +42,7 @@ class Product:
     def update_product(self):
         id = input("\nDigite o código do produto: ")
         verify = data.return_data_in_json("product", "id", id)
-        if (verify != None):
+        if (verify != None): # Confere a existência do produto
             length = input("Digite o comprimento (cm): ")
             width = input("Digite a largura (cm): ")
             thickness = input("Digite a espessura (mm): ")
@@ -70,7 +70,7 @@ class Product:
     def print_products(self):
         product_data = data.return_class_data_in_json("product")
 
-        if (product_data != None):
+        if (len(product_data) != 0): # Confere a existência dos produtos
             for product in product_data:
                 print(f"\nID: {product["id"]}")
                 print(f"Comprimento: {product["length"]} cm")

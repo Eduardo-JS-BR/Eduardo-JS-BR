@@ -28,7 +28,7 @@ class Client:
     def del_client(self):
         document = input("\nDigite o CPF ou CNPJ do Cliente: ")
         verify = data.return_data_in_json("client", "document", document)
-        if (verify != None):
+        if (verify != None): # Confere a existência do cliente
             data.del_data("client", "document", document)
             address.del_address(document)
             print("\nCliente Excluído com Sucesso.")
@@ -38,7 +38,7 @@ class Client:
     def update_client(self):
         document = input("CPF ou CNPJ do Cliente: ")
         verify = data.return_data_in_json("client", "document", document)
-        if (verify != None):
+        if (verify != None): # Confere a existência do cliente
             name = input("\nNome do Cliente: ")
             phone = input("Telefone do Cliente: ")
             email = input("E-Mail do Cliente: ")
@@ -59,7 +59,7 @@ class Client:
     def print_clients(self):
         client_data = data.return_class_data_in_json("client")
 
-        if (client_data != None):
+        if (len(client_data) != 0): # Confere a existência dos clientes
             for client in client_data:
                 print(f"\nNome: {client["name"]}")
                 print(f"Documento: {client["document"]}")
@@ -79,7 +79,7 @@ class Client:
         document = input("\nDigite o CPF ou CNPJ do Cliente: ")
         client_data = data.return_data_in_json("client", "document", document)
 
-        if (client_data != None):
+        if (client_data != None): # Confere a existência do cliente
             client_address = address.return_address(document)
 
             print(f"\nNome: {client_data["name"]}")

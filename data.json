@@ -132,5 +132,13 @@
             "type_of_payment": "Cheque Pr\u00e9-Datado",
             "total_value": 1380.0
         }
+    ],
+    "expense": [
+        {
+            "id": "1",
+            "name": "Compra de Combust\u00edvel",
+            "description": "Compra de Combust\u00edvel para o Maquin\u00e1rio.",
+            "expense_price": 175.0
+        }
     ]
 }

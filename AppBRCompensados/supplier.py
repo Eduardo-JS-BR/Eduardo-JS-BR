@@ -28,7 +28,7 @@ class Supplier:
     def del_supplier(self):
         document = input("\nDigite o CNPJ do Fornecedor: ")
         verify = data.return_data_in_json("supplier", "document", document)
-        if (verify != None):
+        if (verify != None): # Confere a existência do fornecedor
             data.del_data("supplier", "document", document)
             address.del_address(document)
             print("\nFornecedor Excluído com Sucesso.")
@@ -38,7 +38,7 @@ class Supplier:
     def update_supplier(self):
         document = input("CNPJ do Fornecedor: ")
         verify = data.return_data_in_json("client", "document", document)
-        if (verify != None):
+        if (verify != None): # Confere a existência do fornecedor
             name = input("\nNome do Fornecedor: ")
             phone = input("Telefone do Fornecedor: ")
             email = input("E-Mail do Fornecedor: ")
@@ -59,7 +59,7 @@ class Supplier:
     def print_suppliers(self):
         supplier_data = data.return_class_data_in_json("supplier")
 
-        if (supplier_data != None):
+        if (len(supplier_data) != 0): # Confere a existência dos fornecedores
             for supplier in supplier_data:
                 print(f"\nNome: {supplier["name"]}")
                 print(f"Documento: {supplier["document"]}")
@@ -79,7 +79,7 @@ class Supplier:
         document = input("\nDigite o CNPJ do Fornecedor: ")
         supplier_data = data.return_data_in_json("supplier", "document", document)
 
-        if (supplier_data != None):
+        if (supplier_data != None): # Confere a existência do fornecedor
             supplier_address = address.return_address(document)
 
             print(f"\nNome: {supplier_data["name"]}")

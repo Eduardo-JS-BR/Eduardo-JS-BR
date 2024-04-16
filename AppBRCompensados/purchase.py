@@ -70,7 +70,7 @@ class Purchase:
         total_value = 0.0    
         id = input("\nDigite o número da compra: ")
         purchase = data.return_data_in_json("purchase", "id", id)
-        if (purchase != None):
+        if (purchase != None): # Confere a existência da compra
             # Retira os produtos do estoque
             for i in range(len(purchase["product"])):
                 data.update_product("sub", purchase["product"][i], purchase["quantity"][i])        
@@ -120,7 +120,7 @@ class Purchase:
     def print_purchases(self):
         purchase_data = data.return_class_data_in_json("purchase")
 
-        if(purchase_data != None):
+        if(len(purchase_data) != None): # Confere a existência das compras
             for purchase in purchase_data:
                 print(f"\nID: {purchase["id"]}")
                 print(f"Documento do Cliente: {purchase["document"]}")

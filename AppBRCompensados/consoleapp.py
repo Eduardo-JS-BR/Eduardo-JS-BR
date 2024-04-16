@@ -1,4 +1,5 @@
 from client import Client
+from expense import Expense
 from finance import Finance
 from product import Product
 from purchase import Purchase
@@ -9,6 +10,7 @@ import os
 def main():
 
     client = Client()
+    expense = Expense()
     finance = Finance()
     product = Product()
     purchase = Purchase()
@@ -161,18 +163,40 @@ def main():
         elif (option == "6" or option.lower() == "financeiro"):
             while True:
                 print("\n==================\n")
-                print("1 - Vendas\n2 - Compras\n3 - Balanço\n4 - Voltar")
+                print("1 - Listar Vendas\n2 - Listar Compras\n3 - Listar Despesas\n4 - Balanço\n5 - Despesas\n6 - Voltar")
                 option_finance = input("Digite uma opção: ")
                 os.system("cls") # Windows
                 #os.system("clear") # Mac/Linux
 
-                if (option_finance == "1" or option_finance.lower() == "vendas"): # Mostra as Vendas
+                if (option_finance == "1" or option_finance.lower() == "listar vendas"): # Mostra as Vendas
                     finance.print_sales()
-                elif (option_finance == "2" or option_finance.lower() == "compras"): # Mostra as Compras
+                elif (option_finance == "2" or option_finance.lower() == "listar compras"): # Mostra as Compras
                     finance.print_purchases()
-                elif (option_finance == "3" or option_finance.lower() == "balanço"): # Mostra o Balanço
+                elif (option_finance == "3" or option_finance.lower() == "listar despesas"): # Mostra as Despesas
+                    finance.print_expense()
+                elif (option_finance == "4" or option_finance.lower() == "listar balanço" or option_finance.lower() == "listar balanco"): # Mostra o Balanço
                     finance.print_balance()
-                elif (option_finance == "4" or option_finance.lower() == "voltar"): # Volta pro Menu Principal
+                elif (option_finance == "5" or option_finance.lower() == "despesas"): # Área de Despesas
+                    while True:
+                        print("\n==================\n")
+                        print("1 - Nova Despesa\n2 - Excluir Despesa\n3 - Listar Despesas\n4 - Atualizar Despesa\n5 - Voltar")
+                        option_expense = input("Digite uma opção: ")
+                        os.system("cls") # Windows
+                        #os.system("clear") # Mac/Linux
+
+                        if (option_expense == "1" or option_expense.lower() == "nova despesa"):
+                            expense.add_expense()
+                        elif (option_expense == "2" or option_expense.lower() == "excluir despesa"):
+                            expense.del_expense()
+                        elif (option_expense == "3" or option_expense.lower() == "listar despesas"):
+                            expense.print_expense()
+                        elif (option_expense == "4" or option_expense.lower() == "atualizar despesa"):
+                            expense.update_expense()
+                        elif (option_expense == "5" or option_expense.lower() == "voltar"):
+                            break
+                        else:
+                            print("\nOpção não disponível.")
+                elif (option_finance == "6" or option_finance.lower() == "voltar"): # Volta pro Menu Principal
                     break
                 else:
                     print("\nOpção não dispoinível.")

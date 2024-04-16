@@ -73,7 +73,7 @@ class Sales:
         total_value = 0.0    
         id = input("\nDigite o número da venda: ")
         sales = data.return_data_in_json("sales", "id", id)
-        if (sales != None): 
+        if (sales != None):  # Confere a existência da venda
             # Retorna os produtos para o estoque
             for i in range(len(sales["product"])):
                 data.update_product("sum", sales["product"][i], sales["quantity"][i])        
@@ -126,7 +126,7 @@ class Sales:
     def print_sales(self):
         sales_data = data.return_class_data_in_json("sales")
         
-        if(sales_data != None):
+        if(len(sales_data) != 0):  # Confere a existência das vendas
             for sales in sales_data:
                 print(f"\nID: {sales["id"]}")
                 print(f"Documento do Cliente: {sales["document"]}")
