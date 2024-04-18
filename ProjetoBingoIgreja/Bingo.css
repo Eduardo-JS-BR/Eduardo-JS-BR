@@ -1,0 +1,117 @@
+body {
+	background-color: powderblue;
+	background-image: url("imagem.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+h1 {
+	text-align: center;
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
+}
+.button {
+	&:hover{
+		background-color: lightgray;
+		color: black;
+	}
+	border: none;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 50px;
+	font-weight: bold;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-style: solid;
+}
+.buttonReset {
+	&:hover{
+		background-color: lightgray;
+		color: black;
+	}
+	border: none;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	font-weight: bold;
+	margin: 4px 2px;
+	cursor: pointer;
+	margin-top: 20px;
+	border-style: solid;
+}
+.boxBingo {
+	width: 75px;
+	height: 50px;
+	border: none;
+	background-color: #EFEFEF;
+	color: black;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 2px;
+	font-size: 60px;
+	font-weight: bold;
+	border-style: solid;
+}
+
+.inputBingo {
+	background-color: #EFEFEF;
+	color: black;
+	text-align: center;
+	width: 100px;
+	height: 60px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	font-size: 50px;
+	font-weight: bold;
+	border-radius: 2px;
+}
+#numero {
+	background-color: #EFEFEF;
+	color: black;
+	border: none;
+	width: 1000px;
+	height: 88px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 75px;
+	font-weight: bold;
+	margin: 4px 2px;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+	margin-bottom: 30px;
+	border-style: solid;
+}
+#PedraMaior {
+	background-color: #EFEFEF;
+	color: black;
+	border: none;
+	width: 600px;
+	height: 90px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 75px;
+	font-weight: bold;
+	margin: 4px 2px;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+	margin-bottom: 30px;
+	border-style: solid;
+}
